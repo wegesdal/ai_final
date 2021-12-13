@@ -122,7 +122,7 @@ Hence we update the Actor network so that it produces actions that get
 the maximum predicted value as seen by the Critic, for a given state.
 """
 
-bs = 16
+bs = 64
 
 
 class Buffer:
@@ -229,8 +229,8 @@ def get_actor():
     last_init = tf.random_uniform_initializer(minval=-0.003, maxval=0.003)
 
     inputs = layers.Input(shape=(num_states,))
-    out = layers.Dense(400, activation="relu")(inputs)
-    out = layers.Dense(300, activation="relu")(out)
+    out = layers.Dense(256, activation="relu")(inputs)
+    out = layers.Dense(256, activation="relu")(out)
     outputs = layers.Dense(num_actions, activation="tanh", kernel_initializer=last_init)(out)
 
     # Our upper bound is 2.0 for Pendulum.
@@ -246,8 +246,8 @@ def get_critic():
     action_input = layers.Input(shape=(num_actions))
     concat = layers.Concatenate()([state_input, action_input])
 
-    out = layers.Dense(400, activation="relu")(concat)
-    out = layers.Dense(300, activation="relu")(out)
+    out = layers.Dense(256, activation="relu")(concat)
+    out = layers.Dense(256, activation="relu")(out)
     outputs = layers.Dense(1)(out)
 
     # Outputs single value for give state-action
@@ -307,7 +307,7 @@ actor_lr = 0.0005
 critic_optimizer = tf.keras.optimizers.Adam(critic_lr)
 actor_optimizer = tf.keras.optimizers.Adam(actor_lr)
 
-total_episodes = 10000
+total_episodes = 200
 # Discount factor for future rewards
 gamma = 0.99
 # Used to update target networks
@@ -336,7 +336,7 @@ for ep in range(total_episodes):
     while True:
         # Uncomment this to see the Actor in action
         # But not in a python notebook.
-        # env.render()
+        env.render()
 
         tf_prev_state = tf.expand_dims(tf.convert_to_tensor(prev_state), 0)
 

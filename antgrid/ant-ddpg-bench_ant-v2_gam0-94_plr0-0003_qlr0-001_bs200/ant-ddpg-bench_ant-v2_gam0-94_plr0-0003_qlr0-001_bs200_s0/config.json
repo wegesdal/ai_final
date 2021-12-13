@@ -1,0 +1,47 @@
+{
+    "ac_kwargs":	{
+        "activation":	"relu",
+        "hidden_sizes":	[
+            256,
+            256
+        ]
+    },
+    "act_noise":	0.1,
+    "actor_critic":	"mlp_actor_critic",
+    "batch_size":	200,
+    "env_fn":	"<function call_experiment.<locals>.thunk_plus.<locals>.<lambda> at 0x7f514c0eff28>",
+    "epochs":	20,
+    "exp_name":	"ant-ddpg-bench_ant-v2_gam0-94_plr0-0003_qlr0-001_bs200",
+    "gamma":	0.94,
+    "logger":	{
+        "<spinup.utils.logx.EpochLogger object at 0x7f514bf2a320>":	{
+            "epoch_dict":	{},
+            "exp_name":	"ant-ddpg-bench_ant-v2_gam0-94_plr0-0003_qlr0-001_bs200",
+            "first_row":	true,
+            "log_current_row":	{},
+            "log_headers":	[],
+            "output_dir":	"/home/we/ai-final/antgrid/ant-ddpg-bench_ant-v2_gam0-94_plr0-0003_qlr0-001_bs200/ant-ddpg-bench_ant-v2_gam0-94_plr0-0003_qlr0-001_bs200_s0",
+            "output_file":	{
+                "<_io.TextIOWrapper name='/home/we/ai-final/antgrid/ant-ddpg-bench_ant-v2_gam0-94_plr0-0003_qlr0-001_bs200/ant-ddpg-bench_ant-v2_gam0-94_plr0-0003_qlr0-001_bs200_s0/progress.txt' mode='w' encoding='UTF-8'>":	{
+                    "mode":	"w"
+                }
+            }
+        }
+    },
+    "logger_kwargs":	{
+        "exp_name":	"ant-ddpg-bench_ant-v2_gam0-94_plr0-0003_qlr0-001_bs200",
+        "output_dir":	"/home/we/ai-final/antgrid/ant-ddpg-bench_ant-v2_gam0-94_plr0-0003_qlr0-001_bs200/ant-ddpg-bench_ant-v2_gam0-94_plr0-0003_qlr0-001_bs200_s0"
+    },
+    "max_ep_len":	1000,
+    "num_test_episodes":	10,
+    "pi_lr":	0.0003,
+    "polyak":	0.995,
+    "q_lr":	0.001,
+    "replay_size":	1000000,
+    "save_freq":	1,
+    "seed":	0,
+    "start_steps":	10000,
+    "steps_per_epoch":	4000,
+    "update_after":	1000,
+    "update_every":	50
+}
